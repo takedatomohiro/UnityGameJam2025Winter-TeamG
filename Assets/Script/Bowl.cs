@@ -21,6 +21,8 @@ public class Bowl : MonoBehaviour
     public BowlType type;
     public int level;   // 0,1,2,3...
     public bool isDropped = false;
+    public AudioClip mergeSE;
+    AudioSource audioSource;
 
     Rigidbody2D rb;
 
@@ -31,6 +33,8 @@ public class Bowl : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.simulated = false;   // ★ 最初は物理OFF
+
+        audioSource = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -60,6 +64,11 @@ public class Bowl : MonoBehaviour
 
         merged = true;
         other.merged = true;
+
+        if (mergeSE != null)
+        {
+            AudioSource.PlayClipAtPoint(mergeSE, transform.position);
+        }
 
         bool isMaxLevel = level >= spawner.bowlPrefabs.Length - 1;
 
