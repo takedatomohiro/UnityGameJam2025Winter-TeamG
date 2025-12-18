@@ -21,20 +21,20 @@ public class Bowl : MonoBehaviour
     public BowlType type;
     public int level;   // 0,1,2,3...
     public bool isDropped = false;
-    public AudioClip mergeSE;
-    AudioSource audioSource;
 
     Rigidbody2D rb;
 
+    bool isMerging = false;
     bool merged = false;
     // Start is called before the first frame update
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.simulated = false;   // ★ 最初は物理OFF
 
-        audioSource = GetComponent<AudioSource>();
+        // ★ 落とす前は止める
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.gravityScale = 0f;
     }
     void Start()
     {
@@ -47,51 +47,53 @@ public class Bowl : MonoBehaviour
 
     }
 
+    public void Prepare()
+    {
+        rb.simulated = false; // スポーン直後用
+    }
+
     public void Drop()
     {
+        if (isDropped) return;
+
         isDropped = true;
-        rb.simulated = true;    // ★ 落とした瞬間に物理ON
+
+        // ★ 落とした瞬間に有効化
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 1f;
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isMerging) return;
+        if (!isDropped) return;
+
         Bowl other = collision.gameObject.GetComponent<Bowl>();
         if (other == null) return;
-        if (merged || other.merged) return;
-        if (other.level != level) return;
+        if (!other.isDropped) return;
+        if (other.isMerging) return;
 
-        BowlSpawner spawner = FindAnyObjectByType<BowlSpawner>();
-        if (spawner == null) return;
-
-        merged = true;
-        other.merged = true;
-
-        if (mergeSE != null)
+        if (other.level == level)
         {
-            AudioSource.PlayClipAtPoint(mergeSE, transform.position);
+            isMerging = true;
+            other.isMerging = true;
+
+            Vector2 pos = (transform.position + other.transform.position) / 2f;
+
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+
+            BowlSpawner.Instance.Merge(level + 1, pos);
         }
+    }
 
-        bool isMaxLevel = level >= spawner.bowlPrefabs.Length - 1;
-
-        // ★ スコア加算（ここが重要）
-        int addScore = (level + 1) * 10;
-        if (isMaxLevel) addScore *= 5;
-
-        if (ScoreManager.Instance != null)
-        {
-            ScoreManager.Instance.AddScore(addScore);
-        }
-        else
-        {
-            Debug.LogError("ScoreManager.Instance が NULL");
-        }
-
-        if (!isMaxLevel)
-        {
-            Vector3 pos = (transform.position + other.transform.position) * 0.5f;
-            Instantiate(spawner.bowlPrefabs[level + 1], pos, Quaternion.identity);
-        }
-
-        Destroy(other.gameObject);
-        Destroy(gameObject);
+    public void ActivateFromMerge()
+    {
+        isDropped = true;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 1f;
+    }
+    public void SetLevel(int l)
+    {
+        level = l;
     }
 }
