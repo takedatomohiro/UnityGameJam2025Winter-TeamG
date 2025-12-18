@@ -5,9 +5,9 @@ using UnityEngine;
 public class BowlSpawner : MonoBehaviour
 {
     public static BowlSpawner Instance;
-    public GameObject[] bowlPrefabs;
-    public Transform spawnPoint;
-    public int nextLevel;
+
+    public GameObject[] bowlPrefabs;   // ボウルPrefab配列
+    public Transform spawnPoint;        // 出現位置
 
     public float moveSpeed = 5f;
     public float minX = -2.5f;
@@ -15,75 +15,105 @@ public class BowlSpawner : MonoBehaviour
 
     GameObject currentBowl;
     bool isWaiting = false;
+    int nextLevel = 0;
+
+    void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        //Spawn(int level);
+        Spawn(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isWaiting && currentBowl != null)
-        {
-            Move();
-        }
-
-        // ★ ここが NullReference 対策
         if (currentBowl == null) return;
 
-        // 落とす前はスポーン位置に固定
-        currentBowl.transform.position = spawnPoint.position;
+        // 落とす前は左右移動
+        float x = Input.GetAxis("Horizontal");
+        Vector3 pos = currentBowl.transform.position;
+        pos.x += x * moveSpeed * Time.deltaTime;
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        currentBowl.transform.position = pos;
 
-        // スペースキーで落とす
+        // スペースで落とす
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DropBowl();
         }
     }
 
+    void Spawn(int level)
+    {
+        GameObject obj = Instantiate(
+                bowlPrefabs[level],
+                spawnPoint.position,
+                Quaternion.identity
+            );
+
+        obj.GetComponent<Bowl>().SetLevel(level);
+        currentBowl = obj;
+    }
+
+    // =====================
+    // 落とす
+    // =====================
     void DropBowl()
     {
-        // ★ 落としたフラグをON
         currentBowl.GetComponent<Bowl>().Drop();
-
         currentBowl = null;
 
-        // 次のボウルを出す
-        Invoke(nameof(Spawn), 0.5f);
+        Invoke(nameof(SpawnNext), 0.5f);
     }
 
-    public void Spawn(int level)
+    void SpawnNext()
     {
-        int index = Random.Range(0, bowlPrefabs.Length);
-
-        currentBowl = Instantiate(
-            bowlPrefabs[index],
-            spawnPoint.position,
-            Quaternion.identity
-        );
+    int max = Mathf.Min(5, bowlPrefabs.Length);
+    int level = Random.Range(0, max);
+    Spawn(level);
     }
 
+    // =====================
+    // 左右移動
+    // =====================
     void Move()
     {
         float x = Input.GetAxis("Horizontal");
         Vector3 pos = currentBowl.transform.position;
+
         pos.x += x * moveSpeed * Time.deltaTime;
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
+
         currentBowl.transform.position = pos;
     }
 
-    // 合体用
-    public void Merge(int nextLevel, Vector2 pos)
+    // =====================
+    // 合体生成
+    // =====================
+    public void Merge(int level, Vector2 pos)
     {
-        if (nextLevel >= bowlPrefabs.Length) return;
+        if (level >= bowlPrefabs.Length) return;
 
-        Instantiate(bowlPrefabs[nextLevel], pos, Quaternion.identity);
+        GameObject obj = Instantiate(
+            bowlPrefabs[level],
+            pos,
+            Quaternion.identity
+        );
+
+        Bowl bowl = obj.GetComponent<Bowl>();
+        bowl.SetLevel(level);
+        bowl.ActivateFromMerge();
     }
 
+    // =====================
+    // 次のレベル決定
+    // =====================
     void DecideNextLevel()
     {
-        // 小さいボウル中心にする（スイカゲームっぽく）
+        // 小さいボウル中心（スイカゲームっぽい）
         nextLevel = Random.Range(0, Mathf.Min(5, bowlPrefabs.Length));
     }
 }
