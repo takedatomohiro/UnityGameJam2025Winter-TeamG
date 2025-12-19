@@ -27,7 +27,7 @@ public static class BackgroundData
         "yoru",
         "yuki",
         "haru",
-        "bg_winter",
-        "bg_mountain"
+        "utyu",
+        "insyoku"
     };
 }
