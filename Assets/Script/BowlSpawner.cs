@@ -36,6 +36,9 @@ public class BowlSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (FindObjectOfType<GameManager>().IsGameOver())
+            return;
+
         if (currentBowl == null) return;
 
         // 落とす前は左右移動
@@ -69,6 +72,9 @@ public class BowlSpawner : MonoBehaviour
     // =====================
     void DropBowl()
     {
+        if (FindObjectOfType<GameManager>().IsGameOver())
+            return;
+
         currentBowl.GetComponent<Bowl>().Drop();
         currentBowl = null;
 
