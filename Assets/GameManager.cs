@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject gameoverText;
     public GameObject retryButton;
+    public GameObject TitleButton;
     private bool isGameOver=false;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("gameover�Ă΂ꂽ");
         gameoverText.SetActive(true);
         retryButton.SetActive(true);
+        TitleButton.SetActive(true);
         isGameOver = true;
     }
     public void Retry()
