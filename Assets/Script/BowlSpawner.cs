@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BowlSpawner : MonoBehaviour
 {
@@ -14,10 +15,11 @@ public class BowlSpawner : MonoBehaviour
     public float moveSpeed = 5f;
     public float minX = -2.5f;
     public float maxX = 2.5f;
+    public Image nextBowlImage;
 
     GameObject currentBowl;
     bool isWaiting = false;
-    int nextLevel = 0;
+    int nextLevel;
 
     void Awake()
     {
@@ -26,7 +28,9 @@ public class BowlSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Spawn(0);
+        DecideNextLevel();
+        Spawn(nextLevel);
+        DecideNextLevel();
     }
 
     // Update is called once per frame
@@ -73,9 +77,8 @@ public class BowlSpawner : MonoBehaviour
 
     void SpawnNext()
     {
-    int max = Mathf.Min(5, bowlPrefabs.Length);
-    int level = Random.Range(0, max);
-    Spawn(level);
+        Spawn(nextLevel);
+        DecideNextLevel();
     }
 
     // =====================
@@ -121,7 +124,19 @@ public class BowlSpawner : MonoBehaviour
     // =====================
     void DecideNextLevel()
     {
-        // 小さいボウル中心（スイカゲームっぽい）
-        nextLevel = Random.Range(0, Mathf.Min(5, bowlPrefabs.Length));
+        int max = Mathf.Min(5, bowlPrefabs.Length);
+        nextLevel = Random.Range(0, max);
+
+        UpdateNextUI();
+    }
+
+    void UpdateNextUI()
+    {
+        if (nextBowlImage == null) return;
+
+        Sprite sprite =
+            bowlPrefabs[nextLevel].GetComponent<SpriteRenderer>().sprite;
+
+        nextBowlImage.sprite = sprite;
     }
 }
