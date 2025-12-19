@@ -8,6 +8,8 @@ public class BowlSpawner : MonoBehaviour
 
     public GameObject[] bowlPrefabs;   // ボウルPrefab配列
     public Transform spawnPoint;        // 出現位置
+    public AudioSource seSource;
+    public AudioClip mergeSE;
 
     public float moveSpeed = 5f;
     public float minX = -2.5f;
@@ -96,6 +98,12 @@ public class BowlSpawner : MonoBehaviour
     public void Merge(int level, Vector2 pos)
     {
         if (level >= bowlPrefabs.Length) return;
+
+        // ★ SE再生
+        if (mergeSE != null && seSource != null)
+        {
+            seSource.PlayOneShot(mergeSE);
+        }
 
         GameObject obj = Instantiate(
             bowlPrefabs[level],
