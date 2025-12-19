@@ -4067,8 +4067,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4133,8 +4133,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -271.45984, y: 150.5}
-  m_SizeDelta: {x: 821.7, y: 64.07}
+  m_AnchoredPosition: {x: -680, y: 162}
+  m_SizeDelta: {x: 230.06, y: 64.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1912718736
 GameObject:

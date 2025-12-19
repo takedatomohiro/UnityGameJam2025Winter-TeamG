@@ -41,6 +41,6 @@ public class ScoreManager : MonoBehaviour
     void UpdateScoreText()
     {
         if (scoreText != null)
-            scoreText.text = "Score : " + score;
+            scoreText.text = "" + score;
     }
 }
