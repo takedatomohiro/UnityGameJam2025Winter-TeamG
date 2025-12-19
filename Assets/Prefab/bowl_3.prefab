@@ -166,6 +166,7 @@ MonoBehaviour:
   type: 2
   level: 2
   isDropped: 0
+  mergeEffectPrefab: {fileID: 6934443878136364814, guid: f5b7c9e24b7c25b4291d66f53542eb08, type: 3}
 --- !u!114 &3634189750487890404
 MonoBehaviour:
   m_ObjectHideFlags: 0

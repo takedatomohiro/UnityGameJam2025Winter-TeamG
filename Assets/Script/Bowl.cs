@@ -23,6 +23,7 @@ public class Bowl : MonoBehaviour
     public BowlType type;
     public int level;   // 0,1,2,3...
     public bool isDropped = false;
+    public GameObject mergeEffectPrefab;
 
     Rigidbody2D rb;
 
@@ -82,6 +83,8 @@ public class Bowl : MonoBehaviour
             Vector2 pos = (transform.position + other.transform.position) / 2f;
 
             ScoreManager.Instance.AddScore((level + 1) * 10);
+            //エフェクト生成
+            Instantiate(mergeEffectPrefab, pos, Quaternion.identity);
 
             Destroy(other.gameObject);
             Destroy(gameObject);
