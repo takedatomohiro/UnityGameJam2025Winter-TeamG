@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Bowl : MonoBehaviour
 {
@@ -80,6 +82,7 @@ public class Bowl : MonoBehaviour
 
             Vector2 pos = (transform.position + other.transform.position) / 2f;
 
+            ScoreManager.Instance.AddScore((level + 1) * 10);
             //エフェクト生成
             Instantiate(mergeEffectPrefab, pos, Quaternion.identity);
 
