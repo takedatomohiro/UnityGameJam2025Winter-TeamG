@@ -102,5 +102,11 @@ public class Bowl : MonoBehaviour
     public void SetLevel(int l)
     {
         level = l;
+        var sprite = FruitSkinManager.Instance.GetFruitSprite(level);
+        var sr = GetComponent<SpriteRenderer>();
+        if (sprite != null && sr != null)
+        {
+            sr.sprite = sprite;
+        }
     }
 }

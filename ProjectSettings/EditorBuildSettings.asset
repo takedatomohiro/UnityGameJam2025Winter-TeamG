@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BackgroundSelecto.unity
     guid: bf0b0349007f1034eb6413dc67b5c1ac
+  - enabled: 1
+    path: Assets/Scenes/UIScene.unity
+    guid: b4dd74ef3d472b44294dfe1c130c8ceb
   m_configObjects: {}
