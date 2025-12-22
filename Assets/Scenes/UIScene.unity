@@ -3020,15 +3020,15 @@ MonoBehaviour:
     fruitSprites:
     - {fileID: 21300000, guid: ac99105dfc2ca304fbc9c37d3dff35e1, type: 3}
     - {fileID: 21300000, guid: 36c5c2d32d6e5834ebf3d84ae5c8b01e, type: 3}
-    - {fileID: 21300000, guid: f59bbc404563db4458cc85e8721c052d, type: 3}
-    - {fileID: 21300000, guid: bd166eb19a3cbf24194aec06da39cf2e, type: 3}
-    - {fileID: 21300000, guid: f25c3831456f7e04cb1a52fa0a8187f5, type: 3}
-    - {fileID: 21300000, guid: d92e356740bd72d4f9651cf78787d1e7, type: 3}
-    - {fileID: 21300000, guid: 476e92035edc51449bd19d577ba6eb7a, type: 3}
-    - {fileID: 21300000, guid: 124f35aff40297349ab8c605a1dbfec6, type: 3}
-    - {fileID: 21300000, guid: d2abe2baa59a0ea4993d1e5f9bf97cd3, type: 3}
-    - {fileID: 21300000, guid: 3e5397942317ff54bba8ac82572581ce, type: 3}
-    - {fileID: 21300000, guid: 5f4933d084b413e42a40a4d18ccb14bd, type: 3}
+    - {fileID: 21300000, guid: 81a079ff40aaee34abb8640f84e8e037, type: 3}
+    - {fileID: 21300000, guid: 55d1f56230536fa478be05594e921e2b, type: 3}
+    - {fileID: 21300000, guid: e0a7fb47c7111464f866363e7a3f47da, type: 3}
+    - {fileID: 21300000, guid: 5bfdfc5f038e34446b5a50dde5817f9a, type: 3}
+    - {fileID: 21300000, guid: 9c2c25cdab33c434e959d382d3b79d94, type: 3}
+    - {fileID: 21300000, guid: ceb7d4ba1e853c741a565484d3f1af4b, type: 3}
+    - {fileID: 21300000, guid: 878a86235aa94024ebe99557efe97bbb, type: 3}
+    - {fileID: 21300000, guid: 213d37f2675510c44ad06fb526cd48f5, type: 3}
+    - {fileID: 21300000, guid: 2ba14b7e3cc2e8942b9c3a3ed3238fd5, type: 3}
   - skinName: sss
     fruitSprites:
     - {fileID: 21300000, guid: bf7bb96fa1c415b4fb03ff227c934adc, type: 3}
@@ -3044,17 +3044,17 @@ MonoBehaviour:
     - {fileID: 21300000, guid: bf7bb96fa1c415b4fb03ff227c934adc, type: 3}
   - skinName: xxx
     fruitSprites:
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
-    - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
+    - {fileID: 21300000, guid: b4b4ae590b1a940258067f0f0d045a47, type: 3}
+    - {fileID: 21300000, guid: 6f32185343a1b4d48a40991e1cd2afa6, type: 3}
+    - {fileID: 21300000, guid: 0994aa00c05f243328fbf57b618bdfb3, type: 3}
+    - {fileID: 21300000, guid: 919e1ce08f5b1481dab6dac5d3fb2028, type: 3}
+    - {fileID: 21300000, guid: cd033d58ef3f94161819067ff839c97b, type: 3}
+    - {fileID: 21300000, guid: b4b4ae590b1a940258067f0f0d045a47, type: 3}
+    - {fileID: 21300000, guid: cb189738a369441bbbcbaf4a46e5403c, type: 3}
+    - {fileID: 21300000, guid: c81326ef62be6450abefe864e123f52a, type: 3}
+    - {fileID: 21300000, guid: cb189738a369441bbbcbaf4a46e5403c, type: 3}
+    - {fileID: 21300000, guid: 9e18dd8bcbdf64e8b9a571f7af79eb3b, type: 3}
+    - {fileID: 21300000, guid: 7aabb1528803b4cfbaf6fb4217e6c63f, type: 3}
   - skinName: zzz
     fruitSprites:
     - {fileID: 21300000, guid: 489912c6941fa9b48bf20fb07eb6d7a5, type: 3}
