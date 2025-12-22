@@ -24,20 +24,18 @@ public class FruitSkinManager : MonoBehaviour
 
     public Sprite GetFruitSprite(int index)
     {
-        if (index < 0 || index >= skins[currentSkinIndex].fruitSprites.Length)
+        var sprites = skins[currentSkinIndex].fruitSprites;
+        int correctedIndex = sprites.Length - 1 - index;
+
+        if (correctedIndex < 0 || correctedIndex >= sprites.Length)
         {
-            Debug.LogWarning($"[SkinManager] Index {index} out of range!");
+            Debug.LogWarning($"[SkinManager] Invalid index: {correctedIndex}");
             return null;
         }
 
-        var sprite = skins[currentSkinIndex].fruitSprites[index];
-        if (sprite == null)
-        {
-            Debug.LogWarning($"[SkinManager] Sprite at index {index} is null!");
-        }
-
-        return sprite;
+        return sprites[correctedIndex];
     }
+
 
 
 
