@@ -26,6 +26,7 @@ public class Bowl : MonoBehaviour
     public GameObject mergeEffectPrefab;
 
     Rigidbody2D rb;
+    Collider2D col;
 
     bool isMerging = false;
     bool merged = false;
@@ -34,10 +35,17 @@ public class Bowl : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
 
-        // ★ 落とす前は止める
+        // デフォルトは「操作中」
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 0f;
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+
+        col.enabled = false;
+        isDropped = false;
+        isMerging = false;
     }
     void Start()
     {
@@ -60,6 +68,9 @@ public class Bowl : MonoBehaviour
         if (isDropped) return;
 
         isDropped = true;
+
+        // ★ 落とした瞬間に当たり判定ON
+        col.enabled = true;
 
         // ★ 落とした瞬間に有効化
         rb.bodyType = RigidbodyType2D.Dynamic;
@@ -95,12 +106,32 @@ public class Bowl : MonoBehaviour
 
     public void ActivateFromMerge()
     {
-        isDropped = true;
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.gravityScale = 1f;
+        StartCoroutine(MergeActivateCoroutine());
     }
     public void SetLevel(int l)
     {
         level = l;
+    }
+
+    IEnumerator MergeActivateCoroutine()
+    {
+        // 合体直後は固定
+        isDropped = false;
+        isMerging = true;
+
+        col.enabled = true;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.gravityScale = 0f;
+        rb.velocity = Vector2.zero;
+
+        // ★ この「止まる時間」が超重要
+        yield return new WaitForSeconds(0.08f);
+
+        // 落下開始
+        isDropped = true;
+        isMerging = false;
+
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 1f;
     }
 }

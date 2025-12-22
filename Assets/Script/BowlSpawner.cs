@@ -108,6 +108,8 @@ public class BowlSpawner : MonoBehaviour
     {
         if (level >= bowlPrefabs.Length) return;
 
+        pos += Vector2.up * 0.1f; // めり込み防止
+
         // ★ SE再生
         if (mergeSE != null && seSource != null)
         {

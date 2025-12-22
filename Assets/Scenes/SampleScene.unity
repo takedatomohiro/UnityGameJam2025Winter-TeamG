@@ -1037,8 +1037,8 @@ Transform:
   m_GameObject: {fileID: 343009798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.58070296, w: 0.8141155}
-  m_LocalPosition: {x: 3.19, y: 2.47, z: 90}
-  m_LocalScale: {x: 1.3900133, y: 0.325, z: 0.175}
+  m_LocalPosition: {x: 3.2486, y: 2.4902, z: 90}
+  m_LocalScale: {x: 1.3900133, y: 0.26727307, z: 0.175}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1595,8 +1595,8 @@ Transform:
   m_GameObject: {fileID: 664555787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.42, y: -1.71, z: 90}
-  m_LocalScale: {x: 0.2625, y: 7.349634, z: 1}
+  m_LocalPosition: {x: 3.472, y: -1.71, z: 90}
+  m_LocalScale: {x: 0.26250747, y: 7.349634, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2482,7 +2482,7 @@ MonoBehaviour:
   mergeSE: {fileID: 8300000, guid: f20547b4632314f449890f1778369115, type: 3}
   moveSpeed: 5
   minX: -2.5
-  maxX: 2.5
+  maxX: 2.75
   nextBowlImage: {fileID: 1260501529}
 --- !u!4 &1083874410
 Transform:
