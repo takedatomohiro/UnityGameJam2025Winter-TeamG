@@ -3057,17 +3057,17 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 0699585d82b9b5f49bee6abb309077c4, type: 3}
   - skinName: zzz
     fruitSprites:
-    - {fileID: 21300000, guid: 489912c6941fa9b48bf20fb07eb6d7a5, type: 3}
-    - {fileID: 21300000, guid: 849b5da8cd3dc0a428bc921c66b6f435, type: 3}
-    - {fileID: 21300000, guid: cc4c3524c7779d44dbcf4d432bbe9d06, type: 3}
-    - {fileID: 21300000, guid: 489912c6941fa9b48bf20fb07eb6d7a5, type: 3}
-    - {fileID: 21300000, guid: 489912c6941fa9b48bf20fb07eb6d7a5, type: 3}
-    - {fileID: 21300000, guid: 849b5da8cd3dc0a428bc921c66b6f435, type: 3}
-    - {fileID: 21300000, guid: cc4c3524c7779d44dbcf4d432bbe9d06, type: 3}
-    - {fileID: 21300000, guid: 489912c6941fa9b48bf20fb07eb6d7a5, type: 3}
-    - {fileID: 21300000, guid: cc4c3524c7779d44dbcf4d432bbe9d06, type: 3}
-    - {fileID: 21300000, guid: 489912c6941fa9b48bf20fb07eb6d7a5, type: 3}
-    - {fileID: 21300000, guid: c2b79727230842b4d89c658c13fd4e24, type: 3}
+    - {fileID: 21300000, guid: 2a6d83097be2ae14e91f252b08fd6950, type: 3}
+    - {fileID: 21300000, guid: 2e9cd74e621ad354285f02ce016961db, type: 3}
+    - {fileID: 21300000, guid: 45ddb03242205d74e8c7b6cbd874865a, type: 3}
+    - {fileID: 21300000, guid: 5c8dd3d40cfd4444fabb87caadfb8f17, type: 3}
+    - {fileID: 21300000, guid: 5afd875de9aaf36479cb9b3c018b79af, type: 3}
+    - {fileID: 21300000, guid: a4ea18ca17d4b7c4baf828497659d43d, type: 3}
+    - {fileID: 21300000, guid: 533724288b839e34ebe38d3c87c94566, type: 3}
+    - {fileID: 21300000, guid: a491348f5213c284ea074bd6cc1afd0c, type: 3}
+    - {fileID: 21300000, guid: fb24bc4c0b09f284094b5bda91c43a00, type: 3}
+    - {fileID: 21300000, guid: 24858565aaf7c85478ce03e5e4fc7eb5, type: 3}
+    - {fileID: 21300000, guid: b8df051dfdc341d4689081704ec6b614, type: 3}
 --- !u!4 &2031457597
 Transform:
   m_ObjectHideFlags: 0
