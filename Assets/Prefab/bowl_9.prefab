@@ -104,7 +104,7 @@ MonoBehaviour:
   type: 8
   level: 8
   isDropped: 0
-  mergeEffectPrefab: {fileID: 6934443878136364814, guid: f5b7c9e24b7c25b4291d66f53542eb08, type: 3}
+  mergeEffectPrefab: {fileID: 6934443878136364814, guid: 6607c5a0d7483b540a0408371a1acd4f, type: 3}
 --- !u!58 &-4158641527789828073
 CircleCollider2D:
   m_ObjectHideFlags: 0
