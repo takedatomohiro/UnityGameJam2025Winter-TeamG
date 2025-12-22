@@ -57,15 +57,11 @@ public class BowlSpawner : MonoBehaviour
 
     void Spawn(int level)
     {
-        GameObject obj = Instantiate(
-                bowlPrefabs[level],
-                spawnPoint.position,
-                Quaternion.identity
-            );
-
+        GameObject obj = Instantiate(bowlPrefabs[level], spawnPoint.position, Quaternion.identity);
         obj.GetComponent<Bowl>().SetLevel(level);
         currentBowl = obj;
     }
+
 
     // =====================
     // 落とす
@@ -142,9 +138,12 @@ public class BowlSpawner : MonoBehaviour
     {
         if (nextBowlImage == null) return;
 
-        Sprite sprite =
-            bowlPrefabs[nextLevel].GetComponent<SpriteRenderer>().sprite;
-
-        nextBowlImage.sprite = sprite;
+        Sprite sprite = FruitSkinManager.Instance.GetFruitSprite(nextLevel);
+        if (sprite != null)
+        {
+            nextBowlImage.sprite = sprite;
+            Debug.Log($"🍇 Next UI updated: {sprite.name}");
+        }
     }
+
 }
