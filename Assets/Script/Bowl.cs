@@ -78,6 +78,16 @@ public class Bowl : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        TryMerge(collision);
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        TryMerge(collision);
+    }
+
+    void TryMerge(Collision2D collision)
+    {
         if (isMerging) return;
         if (!isDropped) return;
 
@@ -93,8 +103,10 @@ public class Bowl : MonoBehaviour
 
             Vector2 pos = (transform.position + other.transform.position) / 2f;
 
+            // ★ スコア加算
             ScoreManager.Instance.AddScore((level + 1) * 10);
-            //エフェクト生成
+
+            // ★ 合体エフェクト生成
             Instantiate(mergeEffectPrefab, pos, Quaternion.identity);
 
             Destroy(other.gameObject);
