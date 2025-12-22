@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-        Debug.Log("gameoverŒÄ‚Î‚ê‚½");
+        Debug.Log("gameoverå‘¼ã°ã‚ŒãŸ");
         gameoverText.SetActive(true);
         retryButton.SetActive(true);
         TitleButton.SetActive(true);
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     }
     public void Retry()
     {
-        Debug.Log("ƒŠƒgƒ‰ƒCI");
+        Debug.Log("ãƒªãƒˆãƒ©ã‚¤ï¼");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public bool IsGameOver()
