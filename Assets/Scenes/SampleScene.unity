@@ -1118,17 +1118,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitImages:
-  - {fileID: 1229005098}
-  - {fileID: 908583920}
-  - {fileID: 8565453}
-  - {fileID: 149770983}
-  - {fileID: 1119335889}
-  - {fileID: 298117865}
-  - {fileID: 496156327}
-  - {fileID: 699168661}
-  - {fileID: 789550575}
-  - {fileID: 57800047}
   - {fileID: 2012769863}
+  - {fileID: 57800047}
+  - {fileID: 789550575}
+  - {fileID: 699168661}
+  - {fileID: 496156327}
+  - {fileID: 298117865}
+  - {fileID: 1119335889}
+  - {fileID: 149770983}
+  - {fileID: 8565453}
+  - {fileID: 908583920}
+  - {fileID: 1229005098}
 --- !u!4 &413746502
 Transform:
   m_ObjectHideFlags: 0
